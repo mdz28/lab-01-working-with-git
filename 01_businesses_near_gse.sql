@@ -3,6 +3,8 @@
   (3700 Walnut St) that aren't owned by the Trustees of UPenn? Try using
   https://geojson.io/ to get the coordinates of GSE.
 
+39.9556 -75.1925
+
   Hint: There are two ways to get the distance from one geometry to another in
   PostgresSQL:
   1. ST_Distance (https://postgis.net/docs/ST_Distance.html)
@@ -12,3 +14,7 @@
 */
 
 select ...
+SELECT ST_Distance(the_geom, 'SRID=4326 ;POINT(39.9556 -75.1925)'::geometry) as d,edabbr, vaabbr
+FROM business_licenses
+WHERE 
+limit 10
